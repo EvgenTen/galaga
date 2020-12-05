@@ -19,5 +19,6 @@ public class PlayerScript : MonoBehaviour
      void FixedUpdate()
     {
         GetComponent<Rigidbody2D>().velocity = movement;   
+
     }
 }
