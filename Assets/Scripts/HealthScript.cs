@@ -2,14 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class HealthScript : MonoBehaviour
 {
-    public int hp = 1;
+    public int hp = 10;
     public bool isEnemy = true;
+   
 
+
+     public void Start()
+     {
+        
+     }
     public void Damage(int damageCount)
     {
         hp -= damageCount;
+
+        
         if (hp <= 0)
         {
             Destroy(gameObject);
@@ -23,11 +32,20 @@ public class HealthScript : MonoBehaviour
         {
             if (shot.isEnemyShot != isEnemy)
             {
+              
                 Damage(shot.damage);
 
                 Destroy(shot.gameObject);
             }
         }
 
+    }
+
+    public int health
+    {
+        get
+        {
+            return hp;
+        }
     }
 }

@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerScript : MonoBehaviour
 {
     public Vector2 speed = new Vector2(10, 10);
     private Vector2 movement;
- 
+    public Text lifeState;
+
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +27,9 @@ public class PlayerScript : MonoBehaviour
             }
 
         }
+
+        HealthScript hlf = GetComponent<HealthScript>();
+        lifeState.text = hlf.health.ToString();
     }
 
      void FixedUpdate()
